@@ -154,12 +154,23 @@
       }
     });
 
-    startButton.onclick = () => {
-      startButton.style.display = "none";
-      gameStarted = true;
-      gameLoop();
-    };
+   function resetGame() {
+  bird.y = 150;
+  bird.velocity = 0;
+  pipes.length = 0;
+  score = 0;
+  frame = 0;
+  gameOver = false;
+}
 
+startButton.onclick = () => {
+  resetGame();
+  startButton.style.display = "none";
+  restartButton.style.display = "none";
+  gameStarted = true;
+  gameLoop();
+};
+ 
     restartButton.onclick = () => {
       location.reload();
     };
